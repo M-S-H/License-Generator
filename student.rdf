@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://modusoperandi.com/ont/mashup.owl#"
+     xml:base="http://modusoperandi.com/ont/mashup.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://modusoperandi.com/ont/student.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#HasHigherValue -->
+
+    <owl:ObjectProperty rdf:about="http://modusoperandi.com/ont/mashup.owl#HasHigherValue"/>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#HasImmediateHigherValue -->
+
+    <owl:ObjectProperty rdf:about="http://modusoperandi.com/ont/mashup.owl#HasImmediateHigherValue">
+        <rdfs:subPropertyOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#HasHigherValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#HasImmediateLowerValue -->
+
+    <owl:ObjectProperty rdf:about="http://modusoperandi.com/ont/mashup.owl#HasImmediateLowerValue">
+        <rdfs:subPropertyOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#HasLowerValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#HasLowerValue -->
+
+    <owl:ObjectProperty rdf:about="http://modusoperandi.com/ont/mashup.owl#HasLowerValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#AcademicProperties -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#AcademicProperties">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#MashupEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#ComparableProperty -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#ComparableProperty">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#MashupProperties"/>
+        <rdfs:comment>Allowable functions: {==, ≠, ≤, ≥, &lt;, &gt;, between()}</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#EquitableProperty -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#EquitableProperty">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#MashupProperties"/>
+        <rdfs:comment>Allowable functions: {==, ≠}</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#GPA -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#GPA">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#AcademicProperties"/>
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#ComparableProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Gender -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#Gender">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#EquitableProperty"/>
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#StudentProperties"/>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#MashupEntity -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#MashupEntity"/>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#MashupProperties -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#MashupProperties"/>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Program -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#Program">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#AcademicProperties"/>
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#EquitableProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#SetProperty -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#SetProperty">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#MashupProperties"/>
+        <rdfs:comment>Allowable functions: {in(), not_in()}</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#StudentProperties -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#StudentProperties">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#MashupEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Year -->
+
+    <owl:Class rdf:about="http://modusoperandi.com/ont/mashup.owl#Year">
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#ComparableProperty"/>
+        <rdfs:subClassOf rdf:resource="http://modusoperandi.com/ont/mashup.owl#StudentProperties"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#1.0 -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#1.0">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#GPA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#2.0 -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#2.0">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#GPA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#3.0 -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#3.0">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#GPA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#4.0 -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#4.0">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#GPA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Chemistry -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Chemistry">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Program"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Engineering -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Engineering">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Program"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Female -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Female">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Gender"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Freshman -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Freshman">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#History -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#History">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Program"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Junior -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Junior">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Male -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Male">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Gender"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Senior -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Senior">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://modusoperandi.com/ont/mashup.owl#Sophmore -->
+
+    <owl:NamedIndividual rdf:about="http://modusoperandi.com/ont/mashup.owl#Sophmore">
+        <rdf:type rdf:resource="http://modusoperandi.com/ont/mashup.owl#Year"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

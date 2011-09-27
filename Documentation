@@ -1,0 +1,55 @@
+-------------------------------------
+	License Generator
+	Michael Hickman
+-------------------------------------
+
+The License Generator reads an owl ontology saved in and rdf/xml format and uses it to generate an xml license.
+
+Although there is some freedom as to what the ontology can look like, a fairly restricve format is assumed. There must be two subclasses of Thing: MashupEntity and Mashup Properties.
+Under Mashup Properties, there must be three sublcasses: ComparableProperty, EquitableProperty, and SetProperty. zUnder MashupEntity is where more freedom is allowed.
+Classes can be created to serve as catagories for the actual restriction classes. These classes contain the individuals that are the properties that are reasoned over. These classes must also
+be subclasses of ComparableProperty, EquitableProperty, or SetProperty.
+
+
+	Thing
+		|
+		+ --- MashupEntity
+		|					|
+		|					+--- Catagory One
+		|					|				    |
+		|					|					+--- Property One    					--------------------------------------------------------------------------------
+		|					|					|                                                     Properties One, Two, Three and Four contain individuals
+		|					|					+--- Property Two                     --------------------------------------------------------------------------------
+		|					|
+		|					|
+		|					+--- Catagory Two
+		|										|
+		|										+ ---Property Three
+		|										|
+		|										+--- Property Four
+		|
+		|
+        +--- MashupProperties
+							|
+							+--- ComparableProperty
+							|
+							+--- EquitableProperty
+							|
+							+--- SetProperty
+
+
+
+
+Once the program is run, the user will be propmted to enter the name of an owl ontology that is in the same directory. The user will then be guided through building the license by choosing a
+value for the different properties, and a function accocciated with it.
+
+
+
+
+
+
+
+
+
+
+
