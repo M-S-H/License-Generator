@@ -45,7 +45,7 @@ value for the different properties, and a function accocciated with it.
 
 To run the program, within the 'license generator' directory, run 'ruby generator.rb'
 Right now, the two ontologies that are in the directory are 'mashup.rdf' and 'student.rdf' The mashup example is the one pramod wrote, and the student ontology I created as another example.
-(The idea was to reason over scholarships intead of Resources in the mashup example)
+(The idea was to reason over scholarships intead of Resources in the like in mashup example)
 
 
 
