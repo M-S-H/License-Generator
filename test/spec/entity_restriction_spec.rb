@@ -1,3 +1,4 @@
+require 'rspec'
 require_relative '../../lib/polycene/entity_restriction'
 
 describe EntityRestriction do
