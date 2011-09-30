@@ -1,4 +1,6 @@
-require './reader.rb'
+require_relative '../lib/restriction'
+require_relative '../lib/entity_restriction'
+require_relative '../lib/context'
 
 
 puts "Enter a License ID:"
