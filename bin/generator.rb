@@ -1,101 +1,51 @@
-require_relative '../lib/restriction'
-require_relative '../lib/entity_restriction'
-require_relative '../lib/context'
+require_relative '../lib/polycene/restriction'
+require_relative '../lib/polycene/entity_restriction'
+require_relative '../lib/polycene/context'
+require_relative '../lib/polycene/license'
 
-
-puts "Enter a License ID:"
+print "Enter a License ID:  "
 id = gets.chomp
-puts "\n\n"
+license= License.new (id)
 
-
-context = Context.new
-doc = Document.new '<?xml version="1.0" encoding="utf-8"?>'
-doc.add_element 'license', {'id' => id}
-doc.elements[1].add_element 'permissions'
-doc.elements[1].elements[1].add_element 'restricted-activity', {'num' => 1, 'activity' => 'mashup'}
-
-
-puts "Enter the ontology filename:"
+print "\nEnter the ontology filename:  "
 file = gets.chomp
-context.populate('./'+file)
+license.context.populate ('../etc/rdf/' + file)
 
 t = 1
 
-context.entity_restrictions.each { |er|
-	
-	doc.elements[1].elements[1].elements[1].add_element 'entity-restriction', {'type' => er.name }
-		
-	puts "\n----------------------------------------------------------\nSetting the #{er.name}\n----------------------------------------------------------"
-	
-	k = 1
+license.context.entity_restrictions.each { |er|
+	license.doc.elements[1].elements[1].elements[1].add_element 'entity-restriction', {'type' => er.name }
+	puts "\n-------------------------------------\n   #{er.name}\n-------------------------------------\n"
+
+	values = []; functions = []; lnames = []
 	er.restrictions.each { |r|
-		puts "   #{r.name} - #{r.type}"
-
-		i = 1
-		r.values.each { |v| puts "\t#{i}.  #{v}"; i+=1 }
-
+	lnames << r.name
 		if r.type != 'SetProperty'
-			puts "\nPlease Enter the the number corresponding to a property"
+			r.print_values
+			print "\n   Please enter one of the values litsted above:  "
+			values << gets.chomp
+			print "\n   Please enter an allowed function:  "
+			functions << gets.chomp
 		else
-			puts "\nPlease Enter a Value"
+			puts "Number of restrictions:  "
+			num = gets.chomp.to_i
+			num.times do
+				r.print_values
+				print "\n   Please enter a value:  "
+				values << gets.chomp
+				print "\n   Please enter an allowed fucntion:  "
+				functions << gets.chomp
+			end
 		end
-		value = gets.chomp
-		
-		if r.type == 'ComparableProperty'
-			puts "Allowable Functions are:    ==    !=    >=    <=    <    >    between()"
-		end
-		if r.type == 'EquitableProperty'
-			puts "Allowable Functions are:    ==    !="
-		end
-		if r.type == 'SetProperty'
-			puts "Allowable Functions are:    in()    not_in()"
-		end
-	
-		puts "\nPlease Enter the Function"
-		function = gets.chomp
-		
-		puts "\n\t***\n"
-		doc.elements[1].elements[1].elements[1].elements[t].add_element 'restriction', {'property' => r.name, 'function' => function.to_s}	
-		if r.type != 'SetProperty'	
-			doc.elements[1].elements[1].elements[1].elements[t].elements[k].add_text r.values[value.to_i-1]
-		else
-			doc.elements[1].elements[1].elements[1].elements[t].elements[k].add_text value
-		end
-		k += 1
+		puts "\n\n"
 	}
-	t+=1
+	license.add_elements values, functions, lnames, t
+	t += 1
 }
 
-puts "\n\n\n"
-puts "----------------------------------------------------------------------------------------------------"
-puts "Enter the License File Name"
-lname = gets.chomp
-formatter = Formatters::Pretty.new(4)
-tempstring = String.new
-formatter.write(doc, tempstring)
-File.open(lname, 'w+') do |f|
-	f.puts tempstring
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print "\n\n-----------------------------------------\n   Please enter a name for the file:  "
+fname = gets.chomp
+license.build_license (fname)
 
 
 

@@ -18,4 +18,46 @@ class Restriction
 			}
 		}
 	end
+
+	def print_values
+		puts "   #{@name} - #{@type}"
+		i = 1
+		@values.each { |v| puts "\t#{i}.  #{v}"; i+=1 }
+
+		case @type
+			when 'ComparableProperty'
+				puts "   Allowable Functions are:    ==    !=    >=    <=    <    >    between()"
+			when 'EquitableProperty'
+				puts "   Allowable Functions are:    ==    !="
+			when 'SetProperty'
+				puts "   Allowable Functions are:    in()    not_in()"
+		end			
+	end
+
+		
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
