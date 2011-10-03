@@ -27,7 +27,7 @@ license.context.entity_restrictions.each { |er|
 			print "\n   Please enter an allowed function:  "
 			functions << gets.chomp
 		else
-			puts "Number of restrictions:  "
+			puts "   Number of restrictions:  "
 			num = gets.chomp.to_i
 			num.times do
 				r.print_values
@@ -35,6 +35,7 @@ license.context.entity_restrictions.each { |er|
 				values << gets.chomp
 				print "\n   Please enter an allowed fucntion:  "
 				functions << gets.chomp
+				puts "\n"
 			end
 		end
 		puts "\n\n"
