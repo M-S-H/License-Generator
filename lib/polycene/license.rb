@@ -31,7 +31,7 @@ class License
 		formatter = Formatters::Pretty.new(4)
 		tempstring = String.new
 		formatter.write(doc, tempstring)
-		File.open('../etc/licenses/' + name, 'w+') do |f|
+		File.open('../etc/licenses/' + name + '.xml', 'w+') do |f|
 			f.puts tempstring
 		end
 	end
