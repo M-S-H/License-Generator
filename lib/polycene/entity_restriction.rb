@@ -26,6 +26,8 @@ class EntityRestriction
 						@temptype = 'EquitableProperty'
 					when base+'SetProperty'
 						@temptype='SetProperty'
+					when base+'GeoProperty'
+						@temptype='GeoProperty'
 				end
 			}
 			

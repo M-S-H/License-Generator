@@ -4,9 +4,13 @@ include REXML
 class Restriction
 	attr_accessor :values, :name, :type
 	def initialize (name, type)
-		@values = Array.new
-		@name = name
-		@type = type
+		if name == nil || type == nil
+			raise 'cannot be created with nil arguments'
+		else
+			@values = Array.new
+			@name = name
+			@type = type
+		end
 	end
 
 	def populate(doc, base)
@@ -31,6 +35,8 @@ class Restriction
 				puts "   Allowable Functions are:    ==    !="
 			when 'SetProperty'
 				puts "   Allowable Functions are:    in()    not_in()"
+			when 'GeoProperty'
+				puts "   Allowable Functions are:     within(# of miles)"
 		end			
 	end
 
