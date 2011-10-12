@@ -13,31 +13,31 @@ classes contain the individuals that are the properties that are reasoned over. 
 be subclasses of ComparableProperty, EquitableProperty, or SetProperty.
 
 
-	Thing
-	  |
-	  + --- MashupEntity
-	  |			|
-	  |			+--- Catagory One
-	  |			|			|
-	  |			|			+--- Property One    					
-	  |			|			|                                                     
-	  |			|			+--- Property Two                     
-	  |			|
-	  |			|
-	  |			+--- Catagory Two
-	  |						|
-	  |						+ ---Property Three
-	  |						|
-	  |						+--- Property Four
-	  |
-	  |
+    Thing
+      |
+      + --- MashupEntity
+      |         |
+      |         +--- Entity One
+      |         |       |
+      |         |	+--- Property One    					
+      |         |	|                                                     
+      |         |	+--- Property Two                     
+      |		|
+      |		|
+      |		+--- Entity Two
+      |                 |
+      |                 + ---Property Three
+      |                 |
+      |                 +--- Property Four
+      |
+      |
       +--- MashupProperties
-				|
-				+--- ComparableProperty
-				|
-				+--- EquitableProperty
-				|
-				+--- SetProperty
+                 |
+                 +--- ComparableProperty
+                 |
+                 +--- EquitableProperty
+                 |
+                 +--- SetProperty
 
 
 
@@ -49,15 +49,3 @@ function accocciated with it.
 To run the program, within the 'license generator' directory, run 'ruby generator.rb' Right now, the two ontologies 
 that are in the directory are 'mashup.rdf' and 'student.rdf' The mashup example is the one pramod wrote, and the 
 student ontology I created as another example.
-
-
-
-
-
-
-
-
-
-
-
-
