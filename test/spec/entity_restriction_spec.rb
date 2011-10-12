@@ -14,7 +14,7 @@ describe EntityRestriction do
     er.name.should == nil
   end
   
-  context 'with a well defined ontology' do
+  context 'with a well defined ontology' do     #what a 'well defined ontology' is has not been determined
     it 'should process restrictions'
   end
   
