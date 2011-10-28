@@ -44,6 +44,10 @@ license.context.entity_restrictions.each { |er|
 	t += 1
 }
 
+puts "\n-------------------------------------\n   AOI-Restriction\n-------------------------------------\n"
+print "\n     Does this license have a aoi restriction? (yes/no)\n\n     Please enter a value:  "
+aoi = gets.chomp
+license.add_aoi_restriction (aoi)
 print "\n\n-----------------------------------------\n   Please enter a name for the file:  "
 fname = gets.chomp
 license.build_license (fname)

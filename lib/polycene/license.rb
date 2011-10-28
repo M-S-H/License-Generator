@@ -27,6 +27,17 @@ class License
 		end
 	end
 
+	def add_aoi_restriction(value)
+		if value == 'yes'
+			@doc.elements[1].elements[1].add_element 'AOI-restriction', {'type' => 'AOI', 'value' => 'true'}
+		elsif value == 'no'
+			@doc.elements[1].elements[1].add_element 'AOI-restriction', {'type' => 'AOI', 'value' => 'false'}
+		else
+			raise 'invalid entry'
+		end
+	end
+
+
 	def build_license (name)
 		formatter = Formatters::Pretty.new(4)
 		tempstring = String.new

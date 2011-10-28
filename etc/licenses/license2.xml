@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<license id='123456789'>
+    <permissions>
+        <restricted-activity num='1' activity='mashup'>
+
+            <entity-restriction type='EnvironmentEntity'>
+                <restriction property='DeviceProperty' function='!='>Blackberry</restriction>
+                <restriction property='DomainProperty' function='=='>JWICS</restriction>
+                <restriction property='OSProperty' function='=='>SE</restriction>
+            </entity-restriction>
+
+            <entity-restriction type='MashupEnvironmentEntity'/>
+
+            <entity-restriction type='SubjectEntity'>
+                <restriction property='ProjectProperty' function='=='>Yuma</restriction>
+                <restriction property='RoleProperty' function='=='>Alpha</restriction>
+                <restriction property='SecurityClearanceProperty' function='>='>Secret</restriction>
+            </entity-restriction>
+
+        </restricted-activity>
+
+        <AOI-restriction type='AOI' value='true'/>
+
+    </permissions>
+</license>

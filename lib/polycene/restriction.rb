@@ -35,8 +35,6 @@ class Restriction
 				puts "   Allowable Functions are:    ==    !="
 			when 'SetProperty'
 				puts "   Allowable Functions are:    in()    not_in()"
-			when 'GeoProperty'
-				puts "   Allowable Functions are:     within(# of miles)"
 		end			
 	end
 
